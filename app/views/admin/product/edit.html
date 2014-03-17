@@ -1,0 +1,121 @@
+<div ng-controller="ProductEditCtrl" >
+    <form name="form1" id="form1" method="post" action="?" enctype="multipart/form-data">
+        <input type='hidden' id="image_key" name='image_key' value=''/>
+        <input type="hidden" id="mode" name="mode" value="" />
+        <input type='hidden' name='product_id' value=''/>
+        <div id="products" class="contents-main">
+            <h2>Edit Product</h2>
+            <table class="form">
+                <tr>
+                    <th>Product ID</th>
+                    <td>{{product.product_id}}</td>
+                </tr>
+                <tr>
+                    <th>Name<span class="attention"> *</span></th>
+                    <td>
+                        <span class="attention"></span>
+                        <input type="text" name="name" value="{{product.name}}" maxlength="100" style="" size="60" class="box60" />
+                        <span class="attention"> (Max 100 Char)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Category<span class="attention"> *</span></th>
+                    <td>
+                        <select ng-model="product.category_id" ng-options="cat.category_id as cat.category_name for cat in cats">
+                            <option>  </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td>
+
+                        <input type="checkbox" name="status_id" value="1"  New &nbsp;
+                        <input type="checkbox" name="status_id" value="2"  Sale&nbsp;
+                        <input type="checkbox" name="status_id" value="3"  Hot
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price Standard</th>
+                    <td>
+                        <span class="attention"></span>
+                        <input type="text" name="price_standard" value="" style="" size="30" class="box30" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price Sale<span class="attention">*</span></th>
+                    <td>
+                        <span class="attention"></span>
+                        <input type="text" name="price_sale" value="" style="" size="30" class="box30" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>Stock<span class="attention">*</span></th>
+                    <td>
+                        <span class="attention"></span>
+                        <input type="text" name="stock" value="" style="" size="30" class="box30" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Mode<span class="attention">*</span></th>
+                    <td>
+                        <input type="radio" name="display_mode" value="1" >Public &nbsp;
+                        <input type="radio" name="display_mode" value="0"  >Private
+                    </td>
+                </tr>
+
+
+
+
+
+
+
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        <span class="attention"></span>
+                        <textarea name="description" cols="60" rows="8" class="area60" maxlength="1000" style=""></textarea><br />
+                        <span class="attention"> (Max 1000 Char)</span>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <th>List Image<br />[100×100]</th>
+                    <td>
+
+                        <img src="" style="width:100px;height:100px"/></br>
+
+                        <input type='hidden' name='list_image' value='' />
+                        <input type="file" name="f_list_image" size="40"/>
+                        <!--       <a class="btn-normal" href="javascript:;" name="btn" onclick="fnModeSubmit('upload_image', 'image_key', 'f_list_image'); return false;">Upload</a>  -->
+                    </td>
+                </tr>
+                <tr>
+
+                    <th>Main Image<br />[200×200]</th>
+                    <td>
+
+                        <img src="" style="width:100px;height:100px"/></br>
+
+                        <input type='hidden' name='main_image' value='' />
+                        <input type="file" name="f_main_image" size="40" style="<!--{$arrErr[$key]|sfGetErrorColor}-->" />
+                        <!--    <a class="btn-normal" href="javascript:;" name="btn" onclick="fnModeSubmit('upload_image', 'image_key', 'f_main_image'); return false;">Upload</a>  -->
+                    </td>
+                </tr>
+
+
+            </table>
+
+
+
+            <div class="btn-area">
+                <ul>
+                    <li><a class="btn-action" href="javascript:;" onclick=""><span class="btn-prev">Reset Value</span></a></li>
+                    <li><a class="btn-action" href="javascript:;" onclick="s"><span class="btn-next">Confirm</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
